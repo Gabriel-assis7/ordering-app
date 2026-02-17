@@ -1,0 +1,87 @@
+# https://golangci-lint.run/docs/configuration/file/#run-configuration
+run:
+  timeout: "10m"
+  issues-exit-code: 1
+  go: "1.23"
+  relative-path-mode: gomod
+  tests: true
+  modules-download-mode: readonly
+  allow-parallel-runners: true
+  allow-serial-runners: false
+  enable-build-vcs: false
+  concurrency: 0
+
+version: "2"
+linters:
+  default: standard
+  enable:
+    # Core bug detection & correctness (highest priority)
+    - govet
+    - staticcheck
+    - errcheck
+    - bodyclose
+    - unconvert
+    - ineffassign
+    - unused
+
+    # Code style, readability & idiomatic Go
+    - revive
+    - goconst
+    - misspell
+    - dogsled
+    - unparam
+    - exhaustruct
+    - iface
+
+    # Security & dangerous patterns
+    - gosec
+
+    # Logging & observability correctness
+    - loggercheck
+    - sloglint
+
+    # Dependency & module hygiene (go.mod + imports)
+    - gomoddirectives
+    - depguard
+
+    # Very strong additions
+    - copyloopvar
+    - contextcheck
+    - nilerr
+    - nilnil
+    - wrapcheck
+    - rowserrcheck
+    - noctx
+    - gocritic
+
+  disable:
+    # Commonly disabled because too noisy / opinionated
+    - godox
+    - wsl
+    - whitespace
+    - goconst
+    - dupword
+    - makezero
+
+  settings:
+    # https://golangci-lint.run/docs/linters/configuration/#misspell
+    misspell:
+      locale: US
+
+    # https://golangci-lint.run/docs/linters/configuration/#gocritic
+    gocritic:
+      disabled-checks:
+        - dupImport
+      enabled-tags:
+        - diagnostic
+        - opinionated
+        - experimental
+
+# https://golangci-lint.run/docs/configuration/file/#issues-configuration
+issues:
+  max-issues-per-linter: 100
+  max-same-issues: 5
+  uniq-by-line: false
+  fix: true
+  whole-files: true
+  new-from-rev: origin/main

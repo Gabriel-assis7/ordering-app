@@ -10,14 +10,24 @@
 # But not these files...
 !/.gitignore
 
+!/commitlint.config.js
+!/Makefile
+
 !*.go
 !go.sum
 !go.mod
 
+!*.yaml
 !README.md
 !LICENSE
 
-# !Makefile
+!.github/
+!.vscode/
+!.husky/*
+!*.sh
 
 # ...even if they are in subdirectories
 !*/
+
+# Dependency directories
+node_modules/

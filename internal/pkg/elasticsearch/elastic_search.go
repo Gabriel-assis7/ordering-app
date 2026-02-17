@@ -5,7 +5,7 @@ import (
 	"github.com/elastic/go-elasticsearch/v8"
 )
 
-func NewElasticSearchClient(opt ElasticSearchOptions) (*elasticsearch.Client, error) {
+func NewElasticSearchClient(opt *ElasticSearchOptions) (*elasticsearch.Client, error) {
 	esCfg, err := elasticsearch.NewClient(elasticsearch.Config{
 		Addresses: []string{opt.Url},
 	})
