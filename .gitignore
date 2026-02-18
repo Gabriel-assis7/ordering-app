@@ -25,6 +25,7 @@
 !.vscode/
 !.husky/*
 !*.sh
+!*.json
 
 # ...even if they are in subdirectories
 !*/
