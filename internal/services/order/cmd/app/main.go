@@ -21,7 +21,7 @@ func main() {
 	pterm.DefaultBigText.WithLetters(
 		putils.LettersFromStringWithStyle(
 			"Order Service",
-			pterm.BgCyan.ToStyle(),
+			pterm.NewStyle(pterm.FgBlack, pterm.BgMagenta),
 		),
 	).Render()
 
